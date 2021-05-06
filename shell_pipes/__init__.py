@@ -1,2 +1,2 @@
-from shell_pipes import execute
+from shell_pipes.shell_pipes import execute
 
