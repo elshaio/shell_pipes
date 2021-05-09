@@ -14,6 +14,7 @@ def execute(command='', ignore_output=False):
     if not ignore_output:
         for line in stdout:
             cleanline = str(line).replace("b'", "").replace("\\n'", "")
+            cleanline = str(cleanline).replace("b\"", "").replace("\\n\"", "")
             response.append(cleanline)
 
     return response
