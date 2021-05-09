@@ -2,7 +2,7 @@ import shlex
 import subprocess
 
 
-def execute(command=''):
+def execute(command='', ignore_output=False):
     if command == '':
         return ''
 
@@ -11,9 +11,10 @@ def execute(command=''):
 
     response = []
 
-    for line in stdout:
-        cleanline = str(line).replace("b'", "").replace("\\n'", "")
-        response.append(cleanline)
+    if not ignore_output:
+        for line in stdout:
+            cleanline = str(line).replace("b'", "").replace("\\n'", "")
+            response.append(cleanline)
 
     return response
 
